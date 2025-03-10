@@ -38,7 +38,7 @@ Replace `yourusername` with your Docker Hub username or any preferred tag.
 To run the Docker container, use the following command:
 
 ```sh
-docker run -d -p 8080:8080 -p 3001:3001 -p 8188:8188 -p 8888:8888 yourusername/kohya-comfyui-docker:latest
+docker run -d --gpus all -p 8080:8080 -p 3001:3001 -p 8188:8188 -p 8888:8888 yourusername/kohya-comfyui-docker:latest
 ```
 
 Replace `yourusername` with your Docker Hub username or the tag you used when building the image.
