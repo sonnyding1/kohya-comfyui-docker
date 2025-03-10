@@ -20,7 +20,8 @@ env:
   GHCR_REGISTRY: ghcr.io
   DOCKERHUB_REGISTRY: docker.io
   # github.repository as <account>/<repo>
-  IMAGE_NAME: sonnyding20/kohya-comfyui-docker
+  IMAGE_NAME: ${{ github.repository }}
+  DOCKER_HUB_IMAGE_NAME: sonnyding20/kohya-comfyui-docker
 
 jobs:
   build:
@@ -83,7 +84,7 @@ jobs:
         with:
           images: |
             ${{ env.GHCR_REGISTRY }}/${{ env.IMAGE_NAME }}
-            ${{ env.DOCKERHUB_REGISTRY }}/${{ env.IMAGE_NAME }}
+            ${{ env.DOCKERHUB_REGISTRY }}/${{ env.DOCKER_HUB_IMAGE_NAME }}
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
