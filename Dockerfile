@@ -73,6 +73,8 @@ WORKDIR /workspace
 # Exposed ports
 # Kohya_ss
 EXPOSE 3001
+# Tensorboard
+EXPOSE 6006
 # ComfyUI
 EXPOSE 8188
 # Jupyter Notebook

@@ -43,8 +43,12 @@ jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.tok
 echo "JupyterLab started"
 
 # Start Kohya_ss
-/workspace/kohya_ss/gui.sh --listen 0.0.0.0 --server_port 3001 --headless &
+/workspace/kohya_ss/gui.sh --listen 0.0.0.0 --server_port 3001 --headless &>/workspace/kohya_ss_logs.txt &
 echo "Kohya_ss started"
+
+# Start TensorBoard
+tensorboard --logdir /workspace/kohya_ss/logs --host 0.0.0.0 --port 6006 &
+echo "TensorBoard started"
 
 # Start ComfyUI
 if command -v nvidia-smi &> /dev/null && nvidia-smi -L &> /dev/null

@@ -9,17 +9,11 @@ This repository contains the Dockerfile and necessary files to build a Docker im
 The Docker image includes the following services, each accessible on different ports:
 
 - **Kohya_ss**: Accessible on port `3001`
+- **Tensorboard**: Accessible on port `6006`
 - **ComfyUI**: Accessible on port `8188`
 - **JupyterLab**: Accessible on port `8888`
 
-Nginx is configured as a reverse proxy to route requests to the appropriate services based on the URL path.
-
-## Exposed Ports
-
-- **Nginx**: Port `8080` (routes to the services below)
-  - **Kohya_ss**: `/kohya_ss/` -> `http://localhost:3001/`
-  - **ComfyUI**: `/comfyui/` -> `http://localhost:8188/`
-  - **JupyterLab**: `/jupyterlab/` -> `http://localhost:8888/`
+Nginx is configured as a reverse proxy to route requests to the appropriate services based on the URL path, listening at port 8080.
 
 ## How to Build and Run
 
