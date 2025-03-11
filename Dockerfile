@@ -20,7 +20,8 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # Install Python plus openssh, which is our minimum set of required packages.
 RUN apt-get update -y && \
     apt-get install -y python3 python3-pip python3-tk && \
-    apt-get install -y --no-install-recommends openssh-server openssh-client git git-lfs wget vim zip unzip curl nvidia-utils-470 && \
+    apt-get install -y --no-install-recommends openssh-server openssh-client git git-lfs wget vim zip unzip curl && \
+    apt-get install -y nvidia-utils-470 libgl1 libglib2.0-0 && \
     python3 -m pip install --upgrade pip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
