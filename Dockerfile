@@ -60,7 +60,17 @@ RUN pip3 install jupyterlab
 # Download ComfyUI extensions
 # ================================
 
+# cg-use-everywhere
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/chrisgoringe/cg-use-everywhere.git
 
+# ComfyUI-Impact-Pack
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/ltdrdata/ComfyUI-Impact-Pack.git
+
+# ComfyUI-Inspire-Pack
+RUN cd /ComfyUI/custom_nodes && \
+    git clone https://github.com/ltdrdata/ComfyUI-Inspire-Pack.git
 
 # ================================
 # Finishing touch
