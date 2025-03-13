@@ -32,12 +32,6 @@ fi
 # Start nginx as reverse proxy to enable api access
 service nginx start
 
-# Check if there is a venv directory, if so, activate it
-if [ -d "/venv" ]; then
-    echo "venv directory found, activating it"
-    source /venv/bin/activate
-fi
-
 # Start JupyterLab
 jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token='' --NotebookApp.allow_origin='*' &
 echo "JupyterLab started"

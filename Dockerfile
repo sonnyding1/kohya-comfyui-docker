@@ -57,28 +57,13 @@ COPY --chmod=644 comfy.settings.json /ComfyUI/user/default/comfy.settings.json
 RUN pip3 install jupyterlab
 
 # ================================
-# Download ComfyUI extensions
-# ================================
-
-# cg-use-everywhere
-RUN cd /ComfyUI/custom_nodes && \
-    git clone https://github.com/chrisgoringe/cg-use-everywhere.git
-
-# ComfyUI-Impact-Pack
-RUN cd /ComfyUI/custom_nodes && \
-    git clone https://github.com/ltdrdata/ComfyUI-Impact-Pack.git
-
-# ComfyUI-Inspire-Pack
-RUN cd /ComfyUI/custom_nodes && \
-    git clone https://github.com/ltdrdata/ComfyUI-Inspire-Pack.git
-
-# ================================
 # Finishing touch
 # ================================
 
-COPY --chmod=755 start.sh /start.sh
-COPY --chmod=755 comfyui-on-workspace.sh /comfyui-on-workspace.sh
-COPY --chmod=755 kohya-on-workspace.sh /kohya-on-workspace.sh
+COPY --chmod=755 scripts/* /
+
+RUN /install_comfyui_extensions.sh
+
 WORKDIR /workspace
 
 # Exposed ports
